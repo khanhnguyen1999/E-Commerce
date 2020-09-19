@@ -7,7 +7,5 @@ exports.userById = (req,res,next,id)=>{
                 error:'User not found'
             })
         }
-        req.profile = user
-        next()
     })
 }

@@ -10,7 +10,6 @@ const app = express()
 
 //import router
 const useRoutes = require("./routes/auth")
-const use1Routes = require("./routes/user")
 
 
 //app
@@ -33,7 +32,6 @@ app.use(expressValidator())
 
 //routes
 app.use('/api',useRoutes)
-app.use('/api',use1Routes)
 
 const port = process.env.PORT || 8000
 
