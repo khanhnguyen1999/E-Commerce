@@ -28,7 +28,7 @@ mongoose.connect(process.env.DATABASE,{
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(cookieParser())
-app.use(expressValidator())
+app.use(expressValidator
 
 //routes
 app.use('/api',useRoutes)
