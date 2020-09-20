@@ -37,7 +37,6 @@ app.use(expressValidator())
 app.use('/api',authRoutes)
 app.use('/api',useRoutes)
 app.use('/api',categoryRoutes)
-app.use('/api',productRoutes)
 
 const port = process.env.PORT || 8000
 

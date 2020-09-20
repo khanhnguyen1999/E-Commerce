@@ -12,7 +12,6 @@ const app = express()
 const authRoutes = require("./routes/auth")
 const useRoutes = require("./routes/user")
 const categoryRoutes = require("./routes/category")
-const productRoutes = require("./routes/product")
 
 
 //app
@@ -37,7 +36,6 @@ app.use(expressValidator())
 app.use('/api',authRoutes)
 app.use('/api',useRoutes)
 app.use('/api',categoryRoutes)
-app.use('/api',productRoutes)
 
 const port = process.env.PORT || 8000
 
