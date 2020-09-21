@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const {requireSignIn,isAuth,isAdmin} = require("../controllers/auth")
-const {userById,read,update} = require("../controllers/user")
+const {userById} = require("../controllers/user")
 
 router.get('/secret/:userId',requireSignIn,isAuth,isAdmin,(req,res)=>{
     res.json({

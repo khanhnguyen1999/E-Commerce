@@ -27,11 +27,9 @@ exports.update = (req,res)=>{
         (err,user)=>{
             if(err){
                 return res.status(400).json({
-                    error:'You are not authorized to perform this action'
+                    error:errorHandler(err)
                 })
             }
-            user.hashed_password = undefined
-            user.salt = undefined
             res.json(user)
         }    
     )
