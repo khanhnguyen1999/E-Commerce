@@ -5,8 +5,6 @@ import Signup from './user/Signup'
 import Signin from './user/Signin'
 import Home from './Page/Home'
 
-
-
 export default function Routes(){
     return(
         <BrowserRouter>

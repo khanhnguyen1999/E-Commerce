@@ -62,7 +62,7 @@ export default function Signup(){
     )
 
     const showSuccess = ()=>(
-        <div className="alert alert-primary" style={{display:success?'':"none"}}>
+        <div className="alert alert-danger" style={{display:success?'':"none"}}>
             New account is created. Please <Link to="/signin">SignIn</Link>
         </div>
     )

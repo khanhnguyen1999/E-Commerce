@@ -40,7 +40,7 @@ export default function Signup(){
         setValues({...values,error:false})
         signup({name,email,password})
         .then(data=>{
-            if(data?.error){
+            if(data.error){
                  setValues({
                      ...values,error:data.error,success:false
                  })
@@ -62,7 +62,7 @@ export default function Signup(){
     )
 
     const showSuccess = ()=>(
-        <div className="alert alert-primary" style={{display:success?'':"none"}}>
+        <div className="alert alert-danger" style={{display:success?'':"none"}}>
             New account is created. Please <Link to="/signin">SignIn</Link>
         </div>
     )
@@ -90,6 +90,7 @@ export default function Signup(){
                 {showSuccess()}
                 {showError()}
                 {signUpForm()}
+                {JSON.stringify(values)}
             </Layout>
         </>
     )
