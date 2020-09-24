@@ -29,6 +29,7 @@ export default function AddProduct(){
             ...values,
             formData: new FormData()
         })
+        console.log("form ",formData)
     },[])
 
 

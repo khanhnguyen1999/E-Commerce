@@ -29,6 +29,7 @@ export default function AddProduct(){
             ...values,
             formData: new FormData()
         })
+        console.log("form ",formData)
     },[])
 
 
@@ -36,6 +37,7 @@ export default function AddProduct(){
     const handleSubmit = (e)=>{
         e.preventDefault()
         setValues({...values,error:'',loading:true})
+        console.log(formData)
         CreateProduct(user._id,token,formData)
         .then(data=>{
             if(data.err){
@@ -55,7 +57,7 @@ export default function AddProduct(){
         })
     } 
 
-
+    
     const handleChange = field => e=>{
         const value = 
             name === 'photo' ? e.target.files[0] : e.target.value

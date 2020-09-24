@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import Layout from '../Page/Layout'
 import {isAuthenticated} from '../auth'
 import {Link} from 'react-router-dom'
-import {CreateProduct} from './apiAdmin'
+// import {createProduct} from './apiAdmin'
 
 export default function AddProduct(){
     const [values,setValues]=useState({
@@ -20,54 +20,9 @@ export default function AddProduct(){
         redirectToProfile:false,
         formData:''
     })
-    const {user,token}=isAuthenticated()
     const {
         name,description,price,categories,catorogy,shipping,quantity,photo,loading,error,createProduct,redirectToProfile,formData
     } = values
-    useEffect(()=>{
-        setValues({
-            ...values,
-            formData: new FormData()
-        })
-    },[])
-
-
-
-    const handleSubmit = (e)=>{
-        e.preventDefault()
-        setValues({...values,error:'',loading:true})
-        CreateProduct(user._id,token,formData)
-        .then(data=>{
-            if(data.err){
-                setValues({...values,error:data.err})
-            }else{
-                setValues({
-                    ...values,
-                    name:"",
-                    description:"",
-                    photo:"",
-                    price:"",
-                    quantity:"",
-                    loading:false,
-                    createProduct:data.name,
-                })
-            }
-        })
-    } 
-
-
-    const handleChange = field => e=>{
-        const value = 
-            name === 'photo' ? e.target.files[0] : e.target.value
-        console.log("value ",values)
-        formData.set(name,value)    
-        setValues({
-            ...values,
-            [field]:value
-        })
-    } 
-
-
     const newPostForm = ()=>{
         return (
             <form className="mb-3" onSubmit={handleSubmit}>
@@ -111,9 +66,52 @@ export default function AddProduct(){
             </form>
         )
     }
-
-
-
+    const handleChange = field => e=>{
+        const value = name === 'photo'?e.target.files[0]:e.target.value
+        formData.set(name,value)
+        setValues({
+            ...values,
+            [field]:e.target.value
+        })
+    }
+    const {user,token}=isAuthenticated()
+    const CreateProduct = (userId,token,product) =>{
+        return fetch(`${API}/product/create/${userId}`,{
+            method:"POST",
+            headers:{
+                Accept: "application/json",
+                Authorization:`Bearer ${token}`
+            },
+            body:product
+        })
+            .then(res=>{
+                return res.json()
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+    }
+    const handleSubmit = (e)=>{
+        e.preventDefault()
+        setValues({...values,error:'',loading:true})
+        CreateProduct(user._id,token,formData)
+        .then(data=>{
+            if(data.err){
+                setValues({...values,error:data.err})
+            }else{
+                setValues({
+                    ...values,
+                    name:"",
+                    description:"",
+                    photo:"",
+                    price:"",
+                    quantity:"",
+                    loading:false,
+                    createProduct:data.name,
+                })
+            }
+        })
+    }
     const showSuccess = ()=>(
         <div className="alert alert-primary" style={{display:values.success?'':"none"}}>
             Create Product Successs
@@ -124,7 +122,12 @@ export default function AddProduct(){
             Create Product failure
         </div>
     )
-
+    useEffect(()=>{
+        setValues({
+            ...values,
+            formData: new FormData()
+        })
+    },[])
     return (
         <Layout title="Add a new Product" description={`G'day !`} className="container">
             <div className="row">
