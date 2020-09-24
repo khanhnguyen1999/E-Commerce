@@ -57,9 +57,9 @@ export default function AddProduct(){
 
     const handleChange = field => e=>{
         const value = 
-            field === 'photo' ? e.target.files[0] : e.target.value
+        field === 'photo' ? e.target.files[0] : e.target.value
         console.log("value ",values)
-        formData.set(field,value)    
+        formData.set(name,value)    
         setValues({
             ...values,
             [field]:value

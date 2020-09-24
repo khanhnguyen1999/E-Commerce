@@ -31,6 +31,8 @@ export default function AddProduct(){
         })
     },[])
 
+
+
     const handleSubmit = (e)=>{
         e.preventDefault()
         setValues({...values,error:'',loading:true})
@@ -57,9 +59,9 @@ export default function AddProduct(){
 
     const handleChange = field => e=>{
         const value = 
-            field === 'photo' ? e.target.files[0] : e.target.value
+            name === 'photo' ? e.target.files[0] : e.target.value
         console.log("value ",values)
-        formData.set(field,value)    
+        formData.set(name,value)    
         setValues({
             ...values,
             [field]:value
