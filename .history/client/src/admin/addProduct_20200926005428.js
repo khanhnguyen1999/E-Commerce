@@ -64,14 +64,9 @@ export default function AddProduct(){
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        console.log("chec ",e.target.name.id)
-        // console.log("event target id ",id)
         const data = new FormData(e.currentTarget)
-        console.log("data ",data)
-        const message = data.get(e.target.id)
-        console.log("message ",message)
-        data.append(e.target.id,message)
-        console.log("mess ",data.get(e.target.id))
+        console.log("name ",name)
+        const message = data.get(name)
         // CreateProduct(user._id,token,)
     }
 
@@ -81,38 +76,38 @@ export default function AddProduct(){
                 <h4>Post Photo</h4>
                 <div className="form-group">
                     <label className="btn btn-secondary">
-                        <input id="photo" type="file" name="photo" accept="image/*"/>
+                        <input type="file" name="photo" accept="image/*"/>
                     </label>
                 </div>
                 <div className="form-group">
                     <label className="text-muted">Name</label>
-                    <input id="name" name="name" type="text" className="form-control"/>
+                    <input name="name" type="text" className="form-control"/>
                 </div>
                 <div className="form-group">
                     <label className="text-muted">Description</label>
-                    <textarea id="description" name="description" type="text" className="form-control"/>
+                    <textarea name="description" type="text" className="form-control"/>
                 </div>
                 <div className="form-group">
                     <label className="text-muted">Price</label>
-                    <input id="price" name="price" type="number" className="form-control"/>
+                    <input name="price" type="number" className="form-control"/>
                 </div>
                 <div className="form-group">
                     <label className="text-muted">Category</label>
-                    <select id="category" name="category" className="form-control">
+                    <select name="category" className="form-control">
                         <option value="5f67c7da06504222c01c5afc">Python</option>
                         <option value="5f67c7da06504222c01c5afc">PHP</option>
                     </select>
                 </div>
                 <div className="form-group">
                     <label className="text-muted">Shipping</label>
-                    <select id="shipping" name="shipping" className="form-control">
+                    <select name="shipping" className="form-control">
                         <option value="0">No</option>
                         <option value="1">Yes</option>
                     </select>
                 </div>
                 <div className="form-group">
                     <label className="text-muted">Quantity</label>
-                    <input id="quantity" name="quantity" type="text" className="form-control"/>
+                    <input name="quantity" type="text" className="form-control"/>
                 </div>
                 <button className="btn btn-outline-primary">Create Product</button>
             </form>

@@ -32,7 +32,7 @@ export default function Home(){
         loadProductsBySell()
     },[])
     return(
-        <Layout title="Home Page" description="Nodejs React E commerce App" className="container">
+        <Layout title="Home Page" description="Nodejs React E commerce App">
             <h2 className="mb-4">Best Sellers</h2>
             <div className="row">
                  {
@@ -54,6 +54,8 @@ export default function Home(){
                         })
                     }
             </div>
+          
+            
         </Layout>
     )
 }

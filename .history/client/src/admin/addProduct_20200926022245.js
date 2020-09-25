@@ -64,8 +64,8 @@ export default function AddProduct(){
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        console.log("chec ",e.target.name.id)
-        // console.log("event target id ",id)
+        const id = e.target.id
+        console.log("event target id ",id)
         const data = new FormData(e.currentTarget)
         console.log("data ",data)
         const message = data.get(e.target.id)
