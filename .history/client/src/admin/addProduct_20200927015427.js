@@ -43,7 +43,7 @@ export default function AddProduct(){
 
     const newPostForm = ()=>{
         return (
-            <form className="mb-3" onSubmit={handleSubmit}>
+            <form ref={form} className="mb-3" onSubmit={handleSubmit}>
                 <h4>Post Photo</h4>
                 <div className="form-group">
                     <label className="btn btn-secondary">
