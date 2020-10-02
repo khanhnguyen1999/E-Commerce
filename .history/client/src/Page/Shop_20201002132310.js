@@ -12,7 +12,7 @@ export default function Shop(){
             category:[],
             price:[]
         }
-    }) 
+    })
     const [categories,setCategories]= useState([])
     const [error,setError]=useState(false)
     const [limit,setLimit]=useState(6)
@@ -25,7 +25,6 @@ export default function Shop(){
             if(data?.err){
                 setError(data.err)
             }else{
-                console.log("check: ",data)
                 setCategories(data)
             }
         })
@@ -35,7 +34,7 @@ export default function Shop(){
             if(data?.err){
                 setError(data.err)
             }else{
-                setFilteredResults(data?.data)
+                setFilteredResults(data.data)
                 setSize(data.size)
                 setSkip(0)
             }
@@ -47,16 +46,16 @@ export default function Shop(){
             if(data?.err){
                 setError(data.err)
             }else{
-                setFilteredResults([...filteredResults,...data?.data])
-                setSize(data.size)
-                setSkip(toSkip)
+                setFilteredResults([...filteredResults,data?.data])
+                setSize(data?.size)
+                setSkip(0)
             }
         })
     }
 
     const loadMoreButton = ()=>{
         return (
-            size > 0 && size >= limit && (
+            size>0&&size>=limit&&(
                 <button onClick={loadMore} className="btn btn-warning mb-5">Load More</button>
             )
         )
@@ -80,8 +79,6 @@ export default function Shop(){
                 array = data[key].array
             }
         }
-        console.log("array: ",array)
-        return array
     }
 
     useEffect(()=>{

@@ -25,7 +25,7 @@ export default function Shop(){
             if(data?.err){
                 setError(data.err)
             }else{
-                console.log("check: ",data)
+                console.log("check: ",data.data)
                 setCategories(data)
             }
         })

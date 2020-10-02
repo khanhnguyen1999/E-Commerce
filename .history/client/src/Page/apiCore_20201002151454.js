@@ -50,7 +50,7 @@ export const getFilteredProducts = (skip,limit,filters = {}) =>{
 export const list = (params) =>{
     const query = queryString.stringify(params)
     return fetch(`${API}/products/by/${query}`,{
-        method:"POST"
+        method:"GET"
     })
         .then(res=>{
             return res.json()

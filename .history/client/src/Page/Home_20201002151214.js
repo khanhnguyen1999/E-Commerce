@@ -20,7 +20,7 @@ export default function Home(){
     }
     const loadProductsByArrival = ()=>{
         getProducts('createAt').then(data=>{
-            if(data?.err){
+            if(data.err){
                 setError(data?.err)
             }
             else{

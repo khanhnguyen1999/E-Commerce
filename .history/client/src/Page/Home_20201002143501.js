@@ -10,7 +10,7 @@ export default function Home(){
     const [error,setError]=useState(false)
     const loadProductsBySell = ()=>{
         getProducts('sold').then(data=>{
-            if(data?.err){
+            if(data.err){
                 setError(data?.err)
             }
             else{
@@ -20,7 +20,7 @@ export default function Home(){
     }
     const loadProductsByArrival = ()=>{
         getProducts('createAt').then(data=>{
-            if(data?.err){
+            if(data.err){
                 setError(data?.err)
             }
             else{
@@ -34,7 +34,6 @@ export default function Home(){
     },[])
     return(
         <Layout title="Home Page" description="Nodejs React E commerce App" className="container">
-            <Search/>
             <h2 className="mb-4">Best Sellers</h2>
             <div className="row">
                  {

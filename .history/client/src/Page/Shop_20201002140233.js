@@ -12,7 +12,7 @@ export default function Shop(){
             category:[],
             price:[]
         }
-    }) 
+    })
     const [categories,setCategories]= useState([])
     const [error,setError]=useState(false)
     const [limit,setLimit]=useState(6)
@@ -25,7 +25,6 @@ export default function Shop(){
             if(data?.err){
                 setError(data.err)
             }else{
-                console.log("check: ",data)
                 setCategories(data)
             }
         })

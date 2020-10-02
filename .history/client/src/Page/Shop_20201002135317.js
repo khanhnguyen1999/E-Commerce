@@ -12,7 +12,7 @@ export default function Shop(){
             category:[],
             price:[]
         }
-    }) 
+    })
     const [categories,setCategories]= useState([])
     const [error,setError]=useState(false)
     const [limit,setLimit]=useState(6)
@@ -25,7 +25,6 @@ export default function Shop(){
             if(data?.err){
                 setError(data.err)
             }else{
-                console.log("check: ",data)
                 setCategories(data)
             }
         })
@@ -47,7 +46,7 @@ export default function Shop(){
             if(data?.err){
                 setError(data.err)
             }else{
-                setFilteredResults([...filteredResults,...data?.data])
+                setFilteredResults([...filteredResults,data?.data])
                 setSize(data.size)
                 setSkip(toSkip)
             }
@@ -80,8 +79,6 @@ export default function Shop(){
                 array = data[key].array
             }
         }
-        console.log("array: ",array)
-        return array
     }
 
     useEffect(()=>{

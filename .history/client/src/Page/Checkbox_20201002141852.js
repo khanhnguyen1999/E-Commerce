@@ -17,7 +17,7 @@ export default function Checkbox({categories,handleFilters}){
     }
     return(
         categories.map((c,i)=>{
-            // console.log("category ",c)
+            console.log("category "c)
             return(
                 <li key={i} className="list-unstyled">
                     <input onChange={handleToggle(c._id)} value={checked.indexOf(c._id===-1)} type="checkbox" className="form-check-input"/>
