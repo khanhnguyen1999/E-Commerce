@@ -10,9 +10,9 @@ export default function Product(props){
         // setProductId(props.match.params.productId)
         const productId = props.match.params.productId
         loadSingleProduct(productId)
-    },[])
+    },[props])
     const [error,setError]=useState(false)
-    const [related,setRelated]=useState({})
+    const [related,setRelated]=useState([])
     const loadSingleProduct = (productId)=>{
         console.log("productid ",productId)
         read(productId).then(data=>{
@@ -33,7 +33,6 @@ export default function Product(props){
             }
         })
     }
-    console.log("related ",related)
     return(
         <Layout description="Nodejs React E commerce App" className="container">
             <h2 className="mb-4">Single Product</h2>
@@ -44,9 +43,11 @@ export default function Product(props){
                 </div>
                <div className="col-4">
                    {
-                       related.map((p,i)=>{
-                           console.log("checking ",p)
-                       })
+                       related.map((p,i)=>(
+                        <div className="mb-3"  key={i} >
+                           <Card product={p}/>
+                        </div>
+                       ))
                    }
                </div>
             </div>

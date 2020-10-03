@@ -11,7 +11,7 @@ export default function Cart({product,showView=true}){
                     <p>{product.description}</p>
                     <p>${product.price}</p>
                     {
-                        showView?(<Link to={`singleProduct/${product._id}`}>
+                        showView?(<Link to={`/singleProduct/${product._id}`}>
                         <button className="btn btn-outline-primary mt-2 mb-2">
                             View Product
                         </button>
