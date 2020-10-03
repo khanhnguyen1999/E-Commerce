@@ -19,9 +19,7 @@ export default function Search(){
             if(data?.err){
                 console.log(data.err)
             }else{
-                console.log("data: ",data)
                 setData({...data,categories:data})
-                console.log("categories: ",categories)
             }
         })
     }
@@ -29,7 +27,6 @@ export default function Search(){
         loadCategories()
     },[])
     const searchData = ()=>{
-        console.log(search,category)
         if(search){
             list({search:search || undefined,category:category})
             .then(data=>{
@@ -37,7 +34,6 @@ export default function Search(){
                     console.log(data.err)
                 }else{
                     setData({...data,results:data,searched:true})
-                    console.log("result ",results)
                 }
             })
         }
